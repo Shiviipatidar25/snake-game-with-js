@@ -31,13 +31,13 @@ for(let row = 0;row<rows;row++){
         block.classList.add("block")
         board.appendChild(block);
        
-        block[`${row}-${col}`] = block
+        blocks[`${row}-${col}`] = block
     }
 }
 
 function render(){
     snake.forEach(segment=>{
-        blocks[`${segment.x}-${segment.y}`].classList.add("fill")
+        blocks[`${segment.x}-${segment.y}`].classList.add("fill");
     })
 
 }
