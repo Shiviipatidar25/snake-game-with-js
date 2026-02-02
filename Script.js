@@ -15,6 +15,8 @@ const snake = [{
     x:1, y:5
 }]
 
+let direction = 'left'
+
 
 //to access th columns
 
@@ -46,3 +48,23 @@ function render(){
     })
 
 }
+
+setInterval(()=>{
+    let head = null
+
+    if(direction === "left"){
+        head = { x: snake[0].x, y: snake[0].y-1}
+
+    }
+
+    snake.forEach(segment => {
+        blocks[ `${segment.x}-${segment.y}`].classList.remove("fill")
+    })
+
+
+    snake.unshift(head)
+    snake.pop()
+    
+
+    render()
+}, 400);
