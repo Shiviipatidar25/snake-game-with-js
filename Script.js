@@ -48,32 +48,32 @@ function render(){
 
 }
 
-// setInterval(()=>{
-//     let head = null
-//   // direction define for snake
-//     if(direction === "left"){
-//         head = { x: snake[0].x, y: snake[0].y-1}
+setInterval(()=>{
+    let head = null
+  // direction define for snake
+    if(direction === "left"){
+        head = { x: snake[0].x, y: snake[0].y-1}
 
-//     }else if ( direction === "right"){
-//         head = { x: snake[0].x,y: snake[0].y+1}
+    }else if ( direction === "right"){
+        head = { x: snake[0].x,y: snake[0].y+1}
          
-//     }else if( direction === "down"){
-//         head = {x:snake[0].x+1,y: snake[0].y}
-//     }else if(direction === "up"){
-//         head = {x:snake[0].x-1,y:snake[0].y}
-//     }
+    }else if( direction === "down"){
+        head = {x:snake[0].x+1,y: snake[0].y}
+    }else if(direction === "up"){
+        head = {x:snake[0].x-1,y:snake[0].y}
+    }
 
-//     snake.forEach(segment => {
-//         blocks[ `${segment.x}-${segment.y}`].classList.remove("fill")
-//     })
+    snake.forEach(segment => {
+        blocks[ `${segment.x}-${segment.y}`].classList.remove("fill")
+    })
 
 
-//     // snake.unshift(head)
-//     // snake.pop()
+    // snake.unshift(head)
+    // snake.pop()
     
 
-//     render()
-// }, 400);
+    render()
+}, 400);
 
 addEventListener("keyword", (event) =>{
     if(event.key == "ArrowUp"){
