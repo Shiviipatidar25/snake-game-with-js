@@ -5,6 +5,7 @@ const blockWidth = 50
 
 const cols = Math.floor(board.clientWidth / blockWidth);
 const rows = Math.floor(board.clientHeight / blockHeight);
+let intervalId = null;
 
 const blocks = []
 const snake = [
@@ -14,7 +15,7 @@ const snake = [
  
 
 ]
-let direction = 'down'
+let direction = 'right'
 
 
 //to access th columns
@@ -48,7 +49,7 @@ function render(){
 
 }
 
-setInterval(()=>{
+ intervalId = setInterval(()=>{
     let head = null
   // direction define for snake
     if(direction === "left"){
@@ -63,6 +64,11 @@ setInterval(()=>{
         head = {x:snake[0].x-1,y:snake[0].y}
     }
 
+    if(head.x <0 || head.y <0 || head.x >= rows || head.y >= cols){
+        alert("Game Over")
+        clearInterval(intervalId)
+    }
+
     snake.forEach(segment => {
         blocks[ `${segment.x}-${segment.y}`].classList.remove("fill")
     })
@@ -75,7 +81,8 @@ setInterval(()=>{
     render()
 }, 400);
 
-addEventListener("keyword", (event) =>{
+
+addEventListener("keydown", (event) =>{
     if(event.key == "ArrowUp"){
         direction = "up"
     }else if (event.key == "ArrowRight"){
