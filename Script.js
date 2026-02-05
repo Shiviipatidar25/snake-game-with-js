@@ -6,6 +6,7 @@ const blockWidth = 50
 const cols = Math.floor(board.clientWidth / blockWidth);
 const rows = Math.floor(board.clientHeight / blockHeight);
 let intervalId = null;
+let food = {x: Math.floor(Math.random() * rows), y: Math.floor(Math.random()* cols)}
 
 const blocks = []
 const snake = [
