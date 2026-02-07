@@ -52,6 +52,10 @@ function render(){
 
  intervalId = setInterval(()=>{
     let head = null
+
+    blocks[`${food.x}-${food.y}`].classList.add("food");
+
+
   // direction define for snake
     if(direction === "left"){
         head = { x: snake[0].x, y: snake[0].y-1}
@@ -68,6 +72,18 @@ function render(){
     if(head.x <0 || head.y <0 || head.x >= rows || head.y >= cols){
         alert("Game Over")
         clearInterval(intervalId)
+    }
+
+    if(head.x==food.x && head.y==food.y){
+       blocks[`${food.x}-${food.y}`].classList.remove("food"); 
+       food=
+        {x: Math.floor(Math.random() * rows), y: Math.floor(Math.random()* cols)
+        }
+        blocks[`${food.x}-${food.y}`].classList.add("food");
+
+        snake.unshift(head)
+
+       
     }
 
     snake.forEach(segment => {
