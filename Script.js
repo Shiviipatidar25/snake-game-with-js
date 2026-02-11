@@ -1,4 +1,7 @@
 const board  = document.querySelector('.board');
+const startButton = document.querySelector(".btn-start");
+//const modal = document.querySelector(".modal");
+
 
 const blockHeight = 50
 const blockWidth = 50
@@ -91,12 +94,19 @@ function render(){
     })
 
 
-    // snake.unshift(head)
-    // snake.pop()
+    snake.unshift(head)
+    snake.pop()
     
 
     render()
 }, 400);
+
+
+startButton.addEventListener("click", () => {
+//     modal.computedStyleMap.display = "none"
+    intervalId = setInterval(() => {render()} , 300)
+})
+
 
 
 addEventListener("keydown", (event) =>{
