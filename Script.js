@@ -1,6 +1,6 @@
 const board  = document.querySelector('.board');
 const startButton = document.querySelector(".btn-start");
-//const modal = document.querySelector(".modal");
+const modal = document.querySelector(".modal");
 
 
 const blockHeight = 50
@@ -103,7 +103,7 @@ function render(){
 
 
 startButton.addEventListener("click", () => {
-//     modal.computedStyleMap.display = "none"
+     modal.style.display = "none"
     intervalId = setInterval(() => {render()} , 300)
 })
 
